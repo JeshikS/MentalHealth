@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/main.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { NavLink, useNavigate } from 'react-router-dom';
 window.addEventListener('scroll',()=>{
     document.querySelector('nav').classList.toggle('window-scroll', window.scrollY>0)
 })
@@ -12,19 +13,19 @@ function NavBar(){
                 <div className="container">
                     <a href="Home.html">MentalHealth</a>
                     <ul className="menu">
-                        <li><a href="Journal.html">Journal</a></li>
-                        <li><a href="Activity.html">Activity</a></li>
-                        <li><a href="Media.html">Videos</a></li>
-                        <li><a href="Reminders.html">Reminders</a></li>
-                        <li><a href="Services.html">Services</a></li>
+                        <li><NavLink to="./pages/Journal">Journal</NavLink></li>
+                        <li><NavLink to="./pages/Activity">Activity</NavLink></li>
+                        <li><NavLink ro="./pages/Media">Videos</NavLink></li>
+                        <li><NavLink to="./pages/Reminders">Reminders</NavLink></li>
+                        <li><NavLink to="./pages/Services">Sservices</NavLink></li>
                     </ul>
                     <ul className="menu">
-                        <li><a href="Register.html">Sign Up</a></li>
-                        <li><a href="Login.html">Login</a></li>
-                        <li><a href="Profile.Html"><FontAwesomeIcon icon={faUserAlt} /></a></li>
+                        <li><NavLink to="./pages/Register">Sign Up</NavLink></li>
+                        <li><NavLink to="./pages/Login">Login</NavLink></li>
+                        <li><NavLink to="./pages/Profile"><FontAwesomeIcon icon={faUserAlt} /></NavLink></li>
                     </ul>
-                    <button id="open-menu-btn"><i className="uil uil-bars" /></button>
-                    <button id="close-menu-btn"><i className="uil uil-multiply" /></button>
+                    <button htmlFor="open-menu-btn"><i className="uil uil-bars" /></button>
+                    <button htmlFor="close-menu-btn"><i className="uil uil-multiply" /></button>
                 </div>
             </nav>
         </>

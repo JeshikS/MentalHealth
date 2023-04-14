@@ -1,49 +1,149 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/main.css';
 import '../css/Register.css';
-
+import { NavLink, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
+import { auth, getDatabase } from '../firebase.js'; 
+import NavBar from './NavBar';
+import Footer from './Footer';
 export default function Register() {
+    const navigate = useNavigate();
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [username, setUsername] = useState('');
+    const [mobile, setMobilenumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const onSubmit = async (e) => {
+      e.preventDefault()
+     
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+            navigate("/login")
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            // ..
+        });
   return (
-    <>
+  
+    <main>
+        <NavBar/>
+        <section>
         <div className="registeruser">
-            <form action="#" method="post" onsubmit="signup()">
+            <form>
                 <h1>Register</h1>
                 <div className="txt">
-                    <input type="text" id="name1" required />
+                    <input 
+                        type="text"  
+                        required 
+                        label="name1"
+                        value={firstname}
+                        onChange={(e) => setFirstname(e.target.value)}
+                        placeholder='First Name'
+                    />
                     <span />
-                    <label id="name1">First Name</label>
+                    <label htmlFor="name1">
+                        First Name
+                    </label>
                 </div>
                 <div className="txt">
-                    <input type="text" id="name2" required />
+                    <input 
+                        type="text" 
+                        required
+                        label="name2"
+                        value={lastname}
+                        onChange={(e) => setLastname(e.target.value)}
+                        placeholder='Last Name' 
+                    />
                     <span />
-                    <label id="name2">Last Name</label>
+                    <label htmlFor="name2">
+                        Last Name
+                    </label>
                 </div>
                 <div className="txt">
-                    <input type="text" id="user" required />
+                    <input 
+                        type="text" 
+                        required
+                        label="user"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder='Username' 
+                    />
                     <span />
-                    <label id="user">Username</label>
+                    <label htmlFor="user">
+                        Username
+                    </label>
                 </div>
                 <div className="txt">
-                    <input type="text" id="mobno" required />
+                    <input 
+                        type="text" 
+                        required 
+                        label="mobno"
+                        value={mobile}
+                        onChange={(e) => setMobilenumber(e.target.value)}
+                        placeholder='Mobile Number'    
+                    />
                     <span />
-                    <label id="mobno">Mobile Number</label>
+                    <label htmlFor="mobno">
+                        Mobile Number
+                    </label>
                 </div>
                 <div className="txt">
-                    <input type="text" id="email" required />
+                    <input 
+                        type="text" 
+                        required 
+                        label="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder='E-mail'    
+                    />
                     <span />
-                    <label id="email">E-mail</label>
+                    <label htmlFor="email">
+                        E-mail
+                    </label>
                 </div>
                 <div className="txt">
-                    <input type="password" id="password" required />
+                    <input 
+                        type="password" 
+                        required 
+                        label="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}    
+                    />
                     <span />
-                    <label id="password">Password</label>
+                    <label htmlFor="password">
+                        Password
+                    </label>
                 </div>
-                <button id="register" value="Sign Up">Sign Up</button>
+                <div>
+                    <button
+                        type="submit" 
+                        htmlFor="register"
+                        onClick={onSubmit} 
+                    >
+                        Sign Up
+                    </button>
+                </div>
                 <div className="member">
-                    <p>Already a member? <a href="Login.html">Login</a></p>
+                    <p>
+                        Already a member? {'  '}
+                        <NavLink to="./pages/Login">
+                            Login    
+                        </NavLink>    
+                    </p>
                 </div>
             </form>
         </div>
-    </>
+        </section>
+        <Footer/>
+    </main>
   )
+}
 }
