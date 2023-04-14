@@ -6,36 +6,40 @@ import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebase
 import { auth, getDatabase } from '../firebase.js'; 
 import NavBar from './NavBar';
 import Footer from './Footer';
-export default function Register() {
+function Register() {
     const navigate = useNavigate();
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [username, setUsername] = useState('');
     const [mobile, setMobilenumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const onSubmit = async (e) => {
-      e.preventDefault()
-     
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
+    const [emailSignup, setEmailSignup] = useState('');
+    const [passwordSignup, setPasswordSignup] = useState('');
+    const onSubmit=async(e)=>
+    {
+        e.preventDefault();
+        await createUserWithEmailAndPassword(auth,emailSignup,passwordSignup)
+        .then((result)=>
+        {
+            const user = result.user;
             console.log(user);
-            navigate("/login")
-            // ...
+            navigate("/home");
+
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            setEmailSignup('');
+            setPasswordSignup('');
             console.log(errorCode, errorMessage);
+            alert(errorMessage);
             // ..
         });
+    }
   return (
   
-    <main>
+    <div>
         <NavBar/>
-        <section>
+        
         <div className="registeruser">
             <form>
                 <h1>Register</h1>
@@ -100,8 +104,8 @@ export default function Register() {
                         type="text" 
                         required 
                         label="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={emailSignup}
+                        onChange={(e) => setEmailSignup(e.target.value)}
                         placeholder='E-mail'    
                     />
                     <span />
@@ -114,8 +118,8 @@ export default function Register() {
                         type="password" 
                         required 
                         label="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}    
+                        value={passwordSignup}
+                        onChange={(e) => setPasswordSignup(e.target.value)}    
                     />
                     <span />
                     <label htmlFor="password">
@@ -134,16 +138,17 @@ export default function Register() {
                 <div className="member">
                     <p>
                         Already a member? {'  '}
-                        <NavLink to="./pages/Login">
+                        <NavLink to="./Login">
                             Login    
                         </NavLink>    
                     </p>
                 </div>
             </form>
         </div>
-        </section>
+       
         <Footer/>
-    </main>
+    </div>
   )
 }
-}
+
+export default Register;
