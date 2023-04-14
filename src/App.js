@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -15,25 +15,22 @@ import Services from './pages/Services';
 function App() {
     return (
         <>  
-            <Register/>
-            <Router>
-                <div>
-                    <section>
-                        <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/register" element={<Register/>}/>
-                            <Route path="/login" element={<Login/>}/>
-                            <Route path="/activity" element={<Activity/>}/>
-                            <Route path="/reminders" element={<Reminders/>}/>
-                            <Route path="/media" element={<Media/>}/>
-                            <Route path="/services" element={<Services/>}/>
-                            <Route path="/questions" element={<Questions/>}/>
-                            <Route path="/profile" element={<Profile/>}/>
-                            <Route path="/journal" element={<Journal/>}/>
-                        </Routes>
-                    </section>
-                </div>
-            </Router>
+            <div>
+                <section>
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/activity" element={<Activity/>}/>
+                        <Route path="/reminders" element={<Reminders/>}/>
+                        <Route path="/media" element={<Media/>}/>
+                        <Route path="/services" element={<Services/>}/>
+                        <Route path="/questions" element={<Questions/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/journal" element={<Journal/>}/>
+                    </Routes>
+                </section>
+            </div>
         </>
     );
 }
