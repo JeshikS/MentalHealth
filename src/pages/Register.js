@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "../css/main.css";
 import "../css/Register.css";
-import { NavLink, useNavigate, Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserAlt, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-import { auth, getDatabase } from "../firebase.js";
+import { auth, database } from "../firebase.js";
+import { set, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js"
 function Register() {
   const navigate = useNavigate();
   const [firstname, setFirstname] = useState("");
@@ -17,10 +16,19 @@ function Register() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate("/home");
+      .then(() => {
+        const user = auth.currentUser;
+        const db = database;
+        set(ref(db, 'users/' + user.uid),{
+          firstname:firstname,
+          lastname:lastname,
+          username:username,
+          mobile:mobile,
+          email:emailSignup,
+          last_login:Date(Date.now()).toString()
+        });
+        alert("Successfully Registered");
+        navigate("/login");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -33,63 +41,6 @@ function Register() {
   };
   return (
     <div>
-      <nav>
-        <div className="container">
-          <NavLink to="/home" replace={true}>
-            Mental Health{" "}
-          </NavLink>
-          <ul className="menu">
-            <li>
-              <NavLink to="/Journal" replace={true}>
-                Journal
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Activity" replace={true}>
-                Activity
-              </NavLink>
-            </li>
-            <li>
-              <NavLink ro="/Media" replace={true}>
-                Videos
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Reminders" replace={true}>
-                Reminders
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Services" replace={true}>
-                Services
-              </NavLink>
-            </li>
-          </ul>
-          <ul className="menu">
-            <li>
-              <NavLink to="/Register" replace={true}>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Login" replace={true}>
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Profile" replace={true}>
-                <FontAwesomeIcon icon={faUserAlt} />
-              </NavLink>
-            </li>
-          </ul>
-          <button id="open-menu-btn">
-            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-          </button>
-          <button id="close-menu-btn">
-            <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
-          </button>
-        </div>
-      </nav>
       <div className="registeruser">
         <form>
           <h1>Register</h1>
@@ -167,26 +118,11 @@ function Register() {
           <div className="member">
             <p>
               Already a member? {"  "}
-              <NavLink to="./Login">Login</NavLink>
+              <NavLink to="/Login">Login</NavLink>
             </p>
           </div>
         </form>
       </div>
-      <footer className="footer">
-        <div className="container footer_container">
-          <div className="items">
-            <h3>Contact Us</h3>
-            <Link to="#">
-              <i className="fas fa-phone" /> +91 9876543210
-            </Link>
-            <br />
-            <Link to="mailto:deshpande007123@gmail.com">
-              <i className="fas fa-envelope" /> abc@gmail.com
-            </Link>
-            <br />
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

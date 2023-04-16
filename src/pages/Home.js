@@ -4,12 +4,8 @@ import "../css/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserAlt,
-  faQuoteLeft,
-  faQuoteRight,
   faBars,
-  faTimes,
-  faVolumeUp,
-  faCopy,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../images/1.avif";
