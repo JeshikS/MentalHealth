@@ -1,4 +1,141 @@
-.footer{
+header{
+    position: relative;
+    top: 5rem;
+    overflow: hidden;
+    height: 70vh;
+    margin-bottom: 5rem;
+}
+.header_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    height: 100%;
+}
+#welcome{
+    margin-top: 5rem;
+    margin-left: 5rem;
+}
+.right{
+    list-style: decimal;
+}
+.health{
+    background: var(--color-bg1);
+}
+.health h1{
+    line-height: 1;
+    margin-bottom: 3rem;
+}
+.health_container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 3rem;
+}
+.header_left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header_right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header_right-image{
+    height: 80%;
+    width: 80%;
+}
+.health_left p{
+    margin: 1rem 0 3rem;
+}
+.health_right{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:0.5rem;
+}
+.health{
+    background: var(--color-bg2);
+    padding: 2rem;
+    border-radius: 2rem;
+    transition: var(--transition);
+}
+.health:hover{
+    box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3)
+}
+.health_left a{
+    color: var(--color-danger);
+}
+.right li{
+    padding: 0.8rem;
+}
+.window-scroll{
+    background: var(--color-primary);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+.videos_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.btn1{
+    display:block;
+    background:var(--color-white);
+    color: var(--color-danger);
+    width: 15rem;
+    padding:1rem 2rem;
+    border: 1px solid transparent;
+    font-weight: 500;
+    transition: var(--transition);
+    margin-top: 15px;
+    margin: auto auto;
+}
+.btn1:hover{
+    background: transparent;
+    color:var(--color-white);
+    border-color:var(--color-white);
+}
+#quote-box {
+    background: rgb(0, 119, 255);
+    width: 40rem;
+    margin: 10rem auto;
+    padding: 3rem;
+    border-radius: 5px;
+  }
+  
+  #text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #author {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+  }
+  
+  #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  #new-quote {
+    background: white;
+    border: none;
+    color: blue;
+    padding: .7rem 1rem;
+    font-size: .9rem;
+    font-weight: bold;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  #new-quote:hover {
+    opacity: 0.9;
+  }
+
+  .footer{
     display: flex;
     position: relative;
     bottom: 0;
