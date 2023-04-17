@@ -4,6 +4,7 @@ import '../css/Activity.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAlt, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link } from "react-router-dom";
+import Logout from './Logout';
 
 export default function Activity() {
   return (
@@ -42,13 +43,8 @@ export default function Activity() {
           </ul>
           <ul className="menu">
             <li>
-              <NavLink to="/Register" replace={true}>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Login" replace={true}>
-                Login
+              <NavLink onClick={Logout}>
+              Logout
               </NavLink>
             </li>
             <li>

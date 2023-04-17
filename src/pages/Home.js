@@ -76,13 +76,8 @@ function Home() {
           </ul>
           <ul className="menu">
             <li>
-              <NavLink to="/Register" replace={true}>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Login" replace={true}>
-                Login
+              <NavLink to="/" replace={true}>
+                Logout
               </NavLink>
             </li>
             <li>

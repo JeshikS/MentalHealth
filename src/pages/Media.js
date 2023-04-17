@@ -42,13 +42,8 @@ export default function Media() {
           </ul>
           <ul className="menu">
             <li>
-              <NavLink to="/Register" replace={true}>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Login" replace={true}>
-                Login
+              <NavLink to="/" replace={true}>
+                Logout
               </NavLink>
             </li>
             <li>
@@ -65,7 +60,58 @@ export default function Media() {
           </button>
         </div>
       </nav>
-      <footer className="footer">
+      <div className="media-container">
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/ga-MniJxQz8" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/O9qRyFOLdQk" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/1I9ADpXbD6c" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/rkZl2gsLUp4" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/U9YKY7fdwyg" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/thcEuMDWxoI" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/ZToicYcHIOU" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/GNWaWJm1A1g" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/COp7BR_Dvps" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/3QIfkeA6HBY" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/mJW7dYXPZ2o" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/vix0NbikS5o" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/fRDccGSLE9k" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/yTL_bNvXJ9s" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/-GXfLY4-d8w" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+  <div className="mediacon">
+    <iframe width={350} height={240} src="https://www.youtube.com/embed/YPG_6618sWw" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+  </div>
+</div>
+
+      <footer className="footerMedia">
                 <div className="container footer_container">
                     <div className="items">
                         <h3>Contact Us</h3>
